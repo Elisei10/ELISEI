@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,y;
+	cout<<"Введите искомое число: \n";
+	cin>>x;
+	if (x != 0) {
+		
+		cout <<"Введите элементы последовательности "<<endl ;
+		for(int i=0; ; i++) {
+			cin>>y;
+			if (y!=0) {
+				if (y==x) {
+					cout<<"Найдено"<<endl;
+					return 0;
+				}
+			} else {
+				break;
+			}
+		}
+		
+		cout << "Не найдено" << endl;
+		return 0;
+	}
+}
