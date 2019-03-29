@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <codecvt>
+#include <locate>
+using namespace std;
+using std::string;
+
+int main()
+{
+	int Y, i, j;
+	cout<<"Введите количество верблюдов"<<endl;
+	cin >> Y;
+	locate loc("ru_RU.UTF-8");
+	wstring_convert<codecvt_utf8<wchar_t>, wchar_t> codec;
+	string s = "В караване было   верблюд";
+	wstring ws = codec.from_bytes(s);
+	i = Y%10;
+	j = Y%100;
+
+	if ((i == 0) || (i >= 5 && i <= 9) || (j>=11 && j<=14)) {
+		ws.insert(16, to_wstring(s));
+		ws.append("ов");
+		ws.replace(11,4,L"был");
+		s = codec.to_bytes(ws);
+	}
+	cout<<s<<endl;
+}
+return 0;
+}
